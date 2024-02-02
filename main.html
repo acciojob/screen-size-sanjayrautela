@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Size</title>
 </head>
-
 <body>
-	<div id="sizeInfo"></div>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <div id="sizeInfo">
+        <h1>Width: <span id="width"></span></h1>
+        <h1>Height: <span id="height"></span></h1>
+    </div>
 
+    <script>
+        const sizeInfo = document.getElementById('sizeInfo');
+        const widthSpan = document.getElementById('width');
+        const heightSpan = document.getElementById('height');
+
+        function updateSize() {
+            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+            widthSpan.textContent = width;
+            heightSpan.textContent = height;
+        }
+
+        window.addEventListener('resize', updateSize);
+
+        // Initial update
+        updateSize();
+    </script>
 </body>
-
 </html>
